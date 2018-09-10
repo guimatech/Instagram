@@ -3,7 +3,8 @@ program prjInstagram;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  ufrmInicial in 'ufrmInicial.pas' {frmInicial};
+  ufrmInicial in 'ufrmInicial.pas' {frmInicial},
+  ufrmLogin in 'ufrmLogin.pas' {frmLogin};
 
 {$R *.res}
 

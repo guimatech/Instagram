@@ -10,14 +10,12 @@ uses
 type
   TfrmInicial = class(TForm)
     lytLogo: TLayout;
-    lytSubTituloLogo: TLayout;
     lytLoginFacebookBottom: TLayout;
     lytOu: TLayout;
     lytCadastrarTelefoneOuEmail: TLayout;
     lytJaTemConta: TLayout;
     lytLoginFacebookGeral: TLayout;
     recLogiFacebook: TRectangle;
-    lblSubTituloLogo: TLabel;
     lblLoginFacebook: TLabel;
     lblOu: TLabel;
     lineEsquerda: TLine;
@@ -28,9 +26,12 @@ type
     lblCadastrarTelefoneEmail: TLabel;
     lblJaTemConta: TLabel;
     lineJaTemContaTopo: TLine;
-    imgLogoInstagram: TImage;
     pthLogoFacebookSVG: TPath;
     lblLinkLogin: TLabel;
+    recRodape: TRectangle;
+    imgLogoInstagram: TImage;
+    lblSubTituloLogo: TLabel;
+    procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,6 +43,17 @@ var
 
 implementation
 
+uses
+  ufrmLogin;
+
 {$R *.fmx}
+
+procedure TfrmInicial.lblCadastrarTelefoneEmailClick(Sender: TObject);
+begin
+  if not Assigned(frmLogin) then
+    Application.CreateForm(TfrmLogin, frmLogin);
+
+  frmLogin.Show;
+end;
 
 end.
