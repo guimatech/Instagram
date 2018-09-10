@@ -21,4 +21,73 @@ object Form1: TForm1
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
+  object lytLogo: TLayout
+    Align = Center
+    Size.Width = 300.000000000000000000
+    Size.Height = 300.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lytSubTituloLogo: TLayout
+      Align = Client
+      Size.Width = 300.000000000000000000
+      Size.Height = 300.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object recLogoInstagram: TRectangle
+        Align = Top
+        Fill.Color = claNull
+        HitTest = False
+        Size.Width = 300.000000000000000000
+        Size.Height = 95.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+    end
+  end
+  object lytLoginFacebookBottom: TLayout
+    Align = Bottom
+    Position.Y = 438.000000000000000000
+    Size.Width = 416.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object lytLoginFacebookGeral: TLayout
+      Align = Center
+      Size.Width = 338.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object btnLoginFacebook: TSpeedButton
+        Align = Client
+        Size.Width = 338.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'btnLoginFacebook'
+      end
+    end
+  end
+  object lytOu: TLayout
+    Align = Bottom
+    Position.Y = 538.000000000000000000
+    Size.Width = 416.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+  end
+  object lytCadastrarTelefoneOuEmail: TLayout
+    Align = Bottom
+    Position.Y = 488.000000000000000000
+    Size.Width = 416.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
+  object lytJaTemConta: TLayout
+    Align = Bottom
+    Position.Y = 588.000000000000000000
+    Size.Width = 416.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+  end
 end
