@@ -1,15 +1,3 @@
 Rosa - (166, 37, 127)
 Roxo - (143, 49, 145)
-Azul Facebook - (59, 89, 152)
-
-Instagram - png
-
-Cadastre-se para ver as fotos e vídeos de seus amigos - top - 16
-
-Login com o Facebook - iconfinder - materialdesignicons - svg - TPath
-
-line - ou - line - 0,5
-
-Cadastrar com Telefone ou Email - 16 - layout maior
-
-Ja tem uma Conta? Faça o login - line top - 12
+Azul Facebook - (59, 89, 152) - #FF579CE7

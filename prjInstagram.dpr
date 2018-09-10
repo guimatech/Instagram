@@ -3,12 +3,12 @@ program prjInstagram;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  ufrmInicial in 'ufrmInicial.pas' {Form1};
+  ufrmInicial in 'ufrmInicial.pas' {frmInicial};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmInicial, frmInicial);
   Application.Run;
 end.

@@ -8,16 +8,29 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls;
 
 type
-  TForm1 = class(TForm)
+  TfrmInicial = class(TForm)
     lytLogo: TLayout;
     lytSubTituloLogo: TLayout;
-    recLogoInstagram: TRectangle;
     lytLoginFacebookBottom: TLayout;
     lytOu: TLayout;
     lytCadastrarTelefoneOuEmail: TLayout;
     lytJaTemConta: TLayout;
     lytLoginFacebookGeral: TLayout;
-    btnLoginFacebook: TSpeedButton;
+    recLogiFacebook: TRectangle;
+    lblSubTituloLogo: TLabel;
+    lblLoginFacebook: TLabel;
+    lblOu: TLabel;
+    lineEsquerda: TLine;
+    lineDireita: TLine;
+    lytEsquerdaOu: TLayout;
+    lytDireitaOu: TLayout;
+    lytCentroOU: TLayout;
+    lblCadastrarTelefoneEmail: TLabel;
+    lblJaTemConta: TLabel;
+    lineJaTemContaTopo: TLine;
+    imgLogoInstagram: TImage;
+    pthLogoFacebookSVG: TPath;
+    lblLinkLogin: TLabel;
   private
     { Private declarations }
   public
@@ -25,7 +38,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  frmInicial: TfrmInicial;
 
 implementation
 
