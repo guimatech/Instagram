@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions, FMX.ActnList;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions, FMX.ActnList,
+  FMX.Edit;
 
 type
   TfrmLogin = class(TForm)
@@ -31,7 +32,6 @@ type
     lblOu: TLabel;
     lytRodape: TLayout;
     lytJaTemConta: TLayout;
-    recRodape: TRectangle;
     lblJaTemConta: TLabel;
     lblLinkLogin: TLabel;
     lineJaTemContaTopo: TLine;
@@ -41,6 +41,30 @@ type
     lblSubTituloLogo: TLabel;
     lstAcoes: TActionList;
     actMudaAba: TChangeTabAction;
+    lytAbasTelefoneEmail: TLayout;
+    lytEditTelefone: TLayout;
+    lytEditTelefoneCentro: TLayout;
+    recEditTelefone: TRectangle;
+    lytAvancar: TLayout;
+    lytAvancarCentro: TLayout;
+    recAvancar: TRectangle;
+    lblAvancar: TLabel;
+    lblBR55: TLabel;
+    lineEditTelefone: TLine;
+    edtTelefone: TEdit;
+    lytJaTemConta2: TLayout;
+    lytJaTemConta2Centro: TLayout;
+    lblJaTemConta2: TLabel;
+    lblEntrar2: TLabel;
+    lineJaTemContaTopo2: TLine;
+    lytReceberAtualizacaoSMS: TLayout;
+    lytReceberAtualizacaoSMSCentro: TLayout;
+    lblReceberAtualizacaoSMS: TLabel;
+    lytTelefoneEmailCentro: TLayout;
+    lblTelefone: TLabel;
+    lblEmail: TLabel;
+    lineTelefone: TLine;
+    lineEmail: TLine;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
   private
     procedure mudaAba(pAba: TTabItem);

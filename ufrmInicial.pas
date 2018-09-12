@@ -31,6 +31,7 @@ type
     recRodape: TRectangle;
     imgLogoInstagram: TImage;
     lblSubTituloLogo: TLabel;
+    lytJaTemContaCentro: TLayout;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
   private
     { Private declarations }
