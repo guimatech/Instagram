@@ -66,6 +66,7 @@ type
     lineTelefone: TLine;
     lineEmail: TLine;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure mudaAba(pAba: TTabItem);
   public
@@ -78,6 +79,11 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TfrmLogin.FormShow(Sender: TObject);
+begin
+  tbcLogin.TabIndex := 0;
+end;
 
 procedure TfrmLogin.lblCadastrarTelefoneEmailClick(Sender: TObject);
 begin
