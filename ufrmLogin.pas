@@ -95,7 +95,7 @@ implementation
 {$R *.fmx}
 
 uses
-  System.UIConsts;
+  System.UIConsts, uClass.Validacao;
 
 procedure TfrmLogin.btnAvancarClick(Sender: TObject);
 begin
@@ -109,13 +109,11 @@ begin
 
     lblEmail.FontColor := claBlack;
     lineEmail.Stroke.Color := claBlack;
-  end
-  else
+  end;
+
+  if TValida.telefoneValido(edtTelefone.Text) or TValida.emailValido(edtEmail.Text) then
   begin
-    if not (edtTelefone.Text.IsEmpty) or not (edtEmail.Text.IsEmpty) then
-    begin
-      mudaParaAba(tabFotoPerfil);
-    end;
+    mudaParaAba(tabFotoPerfil);
   end;
 end;
 
@@ -132,26 +130,26 @@ end;
 
 procedure TfrmLogin.lblEmailClick(Sender: TObject);
 begin
-  mudaParaAba(tabEditEmail);
-  mudaParaAba(tabSemTextoSMS);
-
   lblTelefone.FontColor := claGray;
   lineTelefone.Stroke.Color := claGray;
 
   lblEmail.FontColor := claBlack;
   lineEmail.Stroke.Color := claBlack;
+
+  mudaParaAba(tabEditEmail);
+  mudaParaAba(tabSemTextoSMS);
 end;
 
 procedure TfrmLogin.lblTelefoneClick(Sender: TObject);
 begin
-  mudaParaAba(tabEditTelefone);
-  mudaParaAba(tabComTextoSMS);
-
   lblTelefone.FontColor := claBlack;
   lineTelefone.Stroke.Color := claBlack;
 
   lblEmail.FontColor := claGray;
   lineEmail.Stroke.Color := claGray;
+
+  mudaParaAba(tabEditTelefone);
+  mudaParaAba(tabComTextoSMS);
 end;
 
 procedure TfrmLogin.mudaParaAba(pAba: TTabItem);
