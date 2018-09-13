@@ -5,15 +5,15 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions, FMX.ActnList,
-  FMX.Edit;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions,
+  FMX.ActnList, FMX.Edit;
 
 type
   TfrmLogin = class(TForm)
     tbcLogin: TTabControl;
     tabCadastro1: TTabItem;
     tabCadastro2: TTabItem;
-    tabCadastro3: TTabItem;
+    tabFotoPerfil: TTabItem;
     tabLogin: TTabItem;
     lytCadastro1: TLayout;
     lytCadastrarTelefoneOuEmail: TLayout;
@@ -48,27 +48,41 @@ type
     lytAvancar: TLayout;
     lytAvancarCentro: TLayout;
     recAvancar: TRectangle;
-    lblAvancar: TLabel;
     lblBR55: TLabel;
     lineEditTelefone: TLine;
     edtTelefone: TEdit;
-    lytJaTemConta2: TLayout;
-    lytJaTemConta2Centro: TLayout;
-    lblJaTemConta2: TLabel;
-    lblEntrar2: TLabel;
-    lineJaTemContaTopo2: TLine;
-    lytReceberAtualizacaoSMS: TLayout;
-    lytReceberAtualizacaoSMSCentro: TLayout;
-    lblReceberAtualizacaoSMS: TLabel;
     lytTelefoneEmailCentro: TLayout;
     lblTelefone: TLabel;
     lblEmail: TLabel;
     lineTelefone: TLine;
     lineEmail: TLine;
+    tbcEditTelefoneEmail: TTabControl;
+    tabEditTelefone: TTabItem;
+    tabEditEmail: TTabItem;
+    lytEditEmail: TLayout;
+    lytEditEmailCentro: TLayout;
+    recEditEmail: TRectangle;
+    edtEmail: TEdit;
+    lblEditEmail: TLabel;
+    tbcTextoSMS: TTabControl;
+    tabComTextoSMS: TTabItem;
+    tabSemTextoSMS: TTabItem;
+    lblReceberAtualizacaoSMS: TLabel;
+    lytFotoPerfil: TLayout;
+    lytFinalizar: TLayout;
+    lytFinalizarCentro: TLayout;
+    recFinalizar: TRectangle;
+    lblFinalizar: TLabel;
+    circle: TCircle;
+    btnAvancar: TSpeedButton;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure tbcLoginChange(Sender: TObject);
+    procedure btnAvancarClick(Sender: TObject);
+    procedure lblEmailClick(Sender: TObject);
+    procedure lblTelefoneClick(Sender: TObject);
   private
-    procedure mudaAba(pAba: TTabItem);
+    procedure mudaParaAba(pAba: TTabItem);
   public
     { Public declarations }
   end;
@@ -80,20 +94,76 @@ implementation
 
 {$R *.fmx}
 
+uses
+  System.UIConsts;
+
+procedure TfrmLogin.btnAvancarClick(Sender: TObject);
+begin
+  if (tbcEditTelefoneEmail.ActiveTab = tabEditTelefone) and (edtTelefone.Text.IsEmpty) then
+  begin
+    mudaParaAba(tabEditEmail);
+    mudaParaAba(tabSemTextoSMS);
+
+    lblTelefone.FontColor := claGray;
+    lineTelefone.Stroke.Color := claGray;
+
+    lblEmail.FontColor := claBlack;
+    lineEmail.Stroke.Color := claBlack;
+  end
+  else
+  begin
+    if not (edtTelefone.Text.IsEmpty) or not (edtEmail.Text.IsEmpty) then
+    begin
+      mudaParaAba(tabFotoPerfil);
+    end;
+  end;
+end;
+
 procedure TfrmLogin.FormShow(Sender: TObject);
 begin
+  tbcLogin.TabPosition := TTabPosition.None;
   tbcLogin.TabIndex := 0;
 end;
 
 procedure TfrmLogin.lblCadastrarTelefoneEmailClick(Sender: TObject);
 begin
-  mudaAba(tabCadastro2);
+  mudaParaAba(tabCadastro2);
 end;
 
-procedure TfrmLogin.mudaAba(pAba: TTabItem);
+procedure TfrmLogin.lblEmailClick(Sender: TObject);
+begin
+  mudaParaAba(tabEditEmail);
+  mudaParaAba(tabSemTextoSMS);
+
+  lblTelefone.FontColor := claGray;
+  lineTelefone.Stroke.Color := claGray;
+
+  lblEmail.FontColor := claBlack;
+  lineEmail.Stroke.Color := claBlack;
+end;
+
+procedure TfrmLogin.lblTelefoneClick(Sender: TObject);
+begin
+  mudaParaAba(tabEditTelefone);
+  mudaParaAba(tabComTextoSMS);
+
+  lblTelefone.FontColor := claBlack;
+  lineTelefone.Stroke.Color := claBlack;
+
+  lblEmail.FontColor := claGray;
+  lineEmail.Stroke.Color := claGray;
+end;
+
+procedure TfrmLogin.mudaParaAba(pAba: TTabItem);
 begin
   actMudaAba.Tab := pAba;
   actMudaAba.ExecuteTarget(nil);
 end;
 
+procedure TfrmLogin.tbcLoginChange(Sender: TObject);
+begin
+  lytRodape.Visible := tbcLogin.ActiveTab <> tabLogin;
+end;
+
 end.
+
