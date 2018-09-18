@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions,
-  FMX.ActnList, FMX.Edit;
+  FMX.ActnList, FMX.Edit, FMX.MediaLibrary.Actions, FMX.StdActns, FGX.ActionSheet;
 
 type
   TfrmLogin = class(TForm)
@@ -73,14 +73,20 @@ type
     lytFinalizarCentro: TLayout;
     recFinalizar: TRectangle;
     lblFinalizar: TLabel;
-    circle: TCircle;
+    circleFoto: TCircle;
     btnAvancar: TSpeedButton;
+    actFotoLibrary: TTakePhotoFromLibraryAction;
+    actFotoCamera: TTakePhotoFromCameraAction;
+    fgactFoto: TfgActionSheet;
+    StyleBook1: TStyleBook;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tbcLoginChange(Sender: TObject);
     procedure btnAvancarClick(Sender: TObject);
     procedure lblEmailClick(Sender: TObject);
     procedure lblTelefoneClick(Sender: TObject);
+    procedure circleFotoClick(Sender: TObject);
+    procedure actFotoLibraryDidFinishTaking(Image: TBitmap);
   private
     procedure mudaParaAba(pAba: TTabItem);
   public
@@ -96,6 +102,11 @@ implementation
 
 uses
   System.UIConsts, uClass.Validacao;
+
+procedure TfrmLogin.actFotoLibraryDidFinishTaking(Image: TBitmap);
+begin
+  circleFoto.Fill.Bitmap.Bitmap := Image;
+end;
 
 procedure TfrmLogin.btnAvancarClick(Sender: TObject);
 begin
@@ -115,6 +126,11 @@ begin
   begin
     mudaParaAba(tabFotoPerfil);
   end;
+end;
+
+procedure TfrmLogin.circleFotoClick(Sender: TObject);
+begin
+  fgactFoto.Show;
 end;
 
 procedure TfrmLogin.FormShow(Sender: TObject);

@@ -1,0 +1,549 @@
+object TStyleContainer
+  object TLayout
+    StyleName = 'EditStyle'
+    Position.X = 472.000000000000000000
+    Position.Y = 402.000000000000000000
+    Size.Width = 215.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 0
+    FixedHeight = 32
+    object TActiveStyleObject
+      StyleName = 'background'
+      Align = Contents
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Size.Width = 215.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ActiveTrigger = Focused
+      ActiveLink = <
+        item
+          CapInsets.Left = 4.000000000000000000
+          CapInsets.Right = 4.000000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 63.000000000000000000
+          SourceRect.Right = 127.000000000000000000
+          SourceRect.Bottom = 93.000000000000000000
+        end
+        item
+          CapInsets.Left = 6.000000000000000000
+          CapInsets.Right = 6.000000000000000000
+          Scale = 1.500000000000000000
+          SourceRect.Left = 157.000000000000000000
+          SourceRect.Top = 95.000000000000000000
+          SourceRect.Right = 206.000000000000000000
+          SourceRect.Bottom = 140.000000000000000000
+        end
+        item
+          CapInsets.Left = 8.000000000000000000
+          CapInsets.Right = 8.000000000000000000
+          Scale = 2.000000000000000000
+          SourceRect.Left = 187.000000000000000000
+          SourceRect.Top = 122.000000000000000000
+          SourceRect.Right = 253.000000000000000000
+          SourceRect.Bottom = 182.000000000000000000
+        end
+        item
+          CapInsets.Left = 12.000000000000000000
+          CapInsets.Right = 12.000000000000000000
+          Scale = 3.000000000000000000
+          SourceRect.Left = 337.000000000000000000
+          SourceRect.Top = 190.000000000000000000
+          SourceRect.Right = 436.000000000000000000
+          SourceRect.Bottom = 280.000000000000000000
+        end>
+      SourceLink = <
+        item
+          CapInsets.Left = 4.000000000000000000
+          CapInsets.Right = 4.000000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 30.000000000000000000
+          SourceRect.Right = 125.000000000000000000
+          SourceRect.Bottom = 61.000000000000000000
+        end
+        item
+          CapInsets.Left = 6.000000000000000000
+          CapInsets.Right = 6.000000000000000000
+          Scale = 1.500000000000000000
+          SourceRect.Left = 157.000000000000000000
+          SourceRect.Top = 45.000000000000000000
+          SourceRect.Right = 206.000000000000000000
+          SourceRect.Bottom = 91.000000000000000000
+        end
+        item
+          CapInsets.Left = 8.000000000000000000
+          CapInsets.Right = 8.000000000000000000
+          Scale = 2.000000000000000000
+          SourceRect.Left = 187.000000000000000000
+          SourceRect.Top = 57.000000000000000000
+          SourceRect.Right = 253.000000000000000000
+          SourceRect.Bottom = 119.000000000000000000
+        end
+        item
+          CapInsets.Left = 12.000000000000000000
+          CapInsets.Right = 12.000000000000000000
+          Scale = 3.000000000000000000
+          SourceRect.Left = 337.000000000000000000
+          SourceRect.Top = 93.000000000000000000
+          SourceRect.Right = 436.000000000000000000
+          SourceRect.Bottom = 186.000000000000000000
+        end>
+      TouchAnimation.Link = <>
+    end
+    object TLayout
+      StyleName = 'content'
+      Align = Client
+      Locked = True
+      Margins.Left = 2.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 159.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TLayout
+      StyleName = 'buttons'
+      Align = Right
+      Locked = True
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Position.X = 163.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TColorObject
+      StyleName = 'caretcolor'
+      Color = xFF222222
+    end
+    object TBrushObject
+      StyleName = 'foreground'
+      Brush.Color = xFF222222
+    end
+    object TBrushObject
+      StyleName = 'selection'
+      Brush.Color = x7F33B5E5
+    end
+    object TFontObject
+      StyleName = 'font'
+      Font.Size = 18.000000000000000000
+    end
+    object TSelectionPoint
+      StyleName = 'leftselectionpoint'
+      GripSize = 3.000000000000000000
+      GripCenter.X = 14.000000000000000000
+      GripCenter.Y = -22.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'edttelefonestyle1leftselectionpointstyle1'
+      TouchTargetExpansion.Left = 28.000000000000000000
+      TouchTargetExpansion.Right = -28.000000000000000000
+    end
+    object TSelectionPoint
+      StyleName = 'rightselectionpoint'
+      GripSize = 3.000000000000000000
+      GripCenter.Y = -44.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'edttelefonestyle1rightselectionpointstyle1'
+    end
+    object TLabel
+      StyleName = 'prompt'
+      Locked = True
+      Opacity = 0.500000000000000000
+      StyleLookup = 'edttelefonestyle1LabelStyle1'
+      Visible = False
+    end
+  end
+  object TLayout
+    StyleName = 'edttelefonestyle1leftselectionpointstyle1'
+    Size.Width = 215.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 1
+    FixedWidth = 24
+    FixedHeight = 24
+    object TStyleObject
+      StyleName = 'background'
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Position.X = -24.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+      SourceLink = <
+        item
+          SourceRect.Left = 9.000000000000000000
+          SourceRect.Top = 106.000000000000000000
+          SourceRect.Right = 33.000000000000000000
+          SourceRect.Bottom = 130.000000000000000000
+        end
+        item
+          Scale = 1.500000000000000000
+          SourceRect.Left = 12.000000000000000000
+          SourceRect.Top = 144.000000000000000000
+          SourceRect.Right = 48.000000000000000000
+          SourceRect.Bottom = 180.000000000000000000
+        end
+        item
+          Scale = 2.000000000000000000
+          SourceRect.Left = 14.000000000000000000
+          SourceRect.Top = 201.000000000000000000
+          SourceRect.Right = 66.000000000000000000
+          SourceRect.Bottom = 253.000000000000000000
+        end
+        item
+          Scale = 3.000000000000000000
+          SourceRect.Left = 20.000000000000000000
+          SourceRect.Top = 294.000000000000000000
+          SourceRect.Right = 92.000000000000000000
+          SourceRect.Bottom = 366.000000000000000000
+        end>
+    end
+  end
+  object TLayout
+    StyleName = 'edttelefonestyle1rightselectionpointstyle1'
+    Size.Width = 215.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 2
+    FixedWidth = 24
+    FixedHeight = 24
+    object TStyleObject
+      StyleName = 'background'
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+      SourceLink = <
+        item
+          SourceRect.Left = 63.000000000000000000
+          SourceRect.Top = 106.000000000000000000
+          SourceRect.Right = 87.000000000000000000
+          SourceRect.Bottom = 130.000000000000000000
+        end
+        item
+          Scale = 1.500000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 144.000000000000000000
+          SourceRect.Right = 130.000000000000000000
+          SourceRect.Bottom = 180.000000000000000000
+        end
+        item
+          Scale = 2.000000000000000000
+          SourceRect.Left = 118.000000000000000000
+          SourceRect.Top = 201.000000000000000000
+          SourceRect.Right = 170.000000000000000000
+          SourceRect.Bottom = 253.000000000000000000
+        end
+        item
+          Scale = 3.000000000000000000
+          SourceRect.Left = 189.000000000000000000
+          SourceRect.Top = 295.000000000000000000
+          SourceRect.Right = 261.000000000000000000
+          SourceRect.Bottom = 367.000000000000000000
+        end>
+    end
+  end
+  object TLayout
+    StyleName = 'edttelefonestyle1LabelStyle1'
+    Size.Width = 215.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 3
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 215.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.FontColor = xFF222222
+    end
+  end
+  object TLayout
+    StyleName = 'EditStyle'
+    Position.X = 430.000000000000000000
+    Position.Y = 402.000000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    FixedHeight = 32
+    object TActiveStyleObject
+      StyleName = 'background'
+      Align = Contents
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Size.Width = 300.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ActiveTrigger = Focused
+      ActiveLink = <
+        item
+          CapInsets.Left = 4.000000000000000000
+          CapInsets.Right = 4.000000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 63.000000000000000000
+          SourceRect.Right = 127.000000000000000000
+          SourceRect.Bottom = 95.000000000000000000
+        end
+        item
+          CapInsets.Left = 6.000000000000000000
+          CapInsets.Right = 6.000000000000000000
+          Scale = 1.500000000000000000
+          SourceRect.Left = 157.000000000000000000
+          SourceRect.Top = 95.000000000000000000
+          SourceRect.Right = 206.000000000000000000
+          SourceRect.Bottom = 143.000000000000000000
+        end
+        item
+          CapInsets.Left = 8.000000000000000000
+          CapInsets.Right = 8.000000000000000000
+          Scale = 2.000000000000000000
+          SourceRect.Left = 187.000000000000000000
+          SourceRect.Top = 122.000000000000000000
+          SourceRect.Right = 253.000000000000000000
+          SourceRect.Bottom = 186.000000000000000000
+        end
+        item
+          CapInsets.Left = 12.000000000000000000
+          CapInsets.Right = 12.000000000000000000
+          Scale = 3.000000000000000000
+          SourceRect.Left = 337.000000000000000000
+          SourceRect.Top = 190.000000000000000000
+          SourceRect.Right = 436.000000000000000000
+          SourceRect.Bottom = 286.000000000000000000
+        end>
+      SourceLink = <
+        item
+          CapInsets.Left = 4.000000000000000000
+          CapInsets.Right = 4.000000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 30.000000000000000000
+          SourceRect.Right = 127.000000000000000000
+          SourceRect.Bottom = 62.000000000000000000
+        end
+        item
+          CapInsets.Left = 6.000000000000000000
+          CapInsets.Right = 6.000000000000000000
+          Scale = 1.500000000000000000
+          SourceRect.Left = 157.000000000000000000
+          SourceRect.Top = 45.000000000000000000
+          SourceRect.Right = 206.000000000000000000
+          SourceRect.Bottom = 93.000000000000000000
+        end
+        item
+          CapInsets.Left = 8.000000000000000000
+          CapInsets.Right = 8.000000000000000000
+          Scale = 2.000000000000000000
+          SourceRect.Left = 187.000000000000000000
+          SourceRect.Top = 57.000000000000000000
+          SourceRect.Right = 253.000000000000000000
+          SourceRect.Bottom = 121.000000000000000000
+        end
+        item
+          CapInsets.Left = 12.000000000000000000
+          CapInsets.Right = 12.000000000000000000
+          Scale = 3.000000000000000000
+          SourceRect.Left = 337.000000000000000000
+          SourceRect.Top = 93.000000000000000000
+          SourceRect.Right = 436.000000000000000000
+          SourceRect.Bottom = 189.000000000000000000
+        end>
+      TouchAnimation.Link = <>
+    end
+    object TLayout
+      StyleName = 'content'
+      Align = Client
+      Locked = True
+      Margins.Left = 2.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 244.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TLayout
+      StyleName = 'buttons'
+      Align = Right
+      Locked = True
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Position.X = 248.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TColorObject
+      StyleName = 'caretcolor'
+      Color = xFF222222
+    end
+    object TBrushObject
+      StyleName = 'foreground'
+      Brush.Color = xFF222222
+    end
+    object TBrushObject
+      StyleName = 'selection'
+      Brush.Color = x7F33B5E5
+    end
+    object TFontObject
+      StyleName = 'font'
+      Font.Size = 18.000000000000000000
+    end
+    object TSelectionPoint
+      StyleName = 'leftselectionpoint'
+      GripSize = 3.000000000000000000
+      GripCenter.X = 14.000000000000000000
+      GripCenter.Y = -22.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'edtemailstyle1leftselectionpointstyle1'
+      TouchTargetExpansion.Left = 28.000000000000000000
+      TouchTargetExpansion.Right = -28.000000000000000000
+    end
+    object TSelectionPoint
+      StyleName = 'rightselectionpoint'
+      GripSize = 3.000000000000000000
+      GripCenter.Y = -44.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'edtemailstyle1rightselectionpointstyle1'
+    end
+    object TLabel
+      StyleName = 'prompt'
+      Locked = True
+      Opacity = 0.500000000000000000
+      StyleLookup = 'edtemailstyle1LabelStyle1'
+      Visible = False
+    end
+  end
+  object TLayout
+    StyleName = 'edtemailstyle1leftselectionpointstyle1'
+    Size.Width = 300.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 5
+    FixedWidth = 24
+    FixedHeight = 24
+    object TStyleObject
+      StyleName = 'background'
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Position.X = -24.000000000000000000
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+      SourceLink = <
+        item
+          SourceRect.Left = 9.000000000000000000
+          SourceRect.Top = 106.000000000000000000
+          SourceRect.Right = 33.000000000000000000
+          SourceRect.Bottom = 130.000000000000000000
+        end
+        item
+          Scale = 1.500000000000000000
+          SourceRect.Left = 12.000000000000000000
+          SourceRect.Top = 144.000000000000000000
+          SourceRect.Right = 48.000000000000000000
+          SourceRect.Bottom = 180.000000000000000000
+        end
+        item
+          Scale = 2.000000000000000000
+          SourceRect.Left = 14.000000000000000000
+          SourceRect.Top = 201.000000000000000000
+          SourceRect.Right = 66.000000000000000000
+          SourceRect.Bottom = 253.000000000000000000
+        end
+        item
+          Scale = 3.000000000000000000
+          SourceRect.Left = 20.000000000000000000
+          SourceRect.Top = 294.000000000000000000
+          SourceRect.Right = 92.000000000000000000
+          SourceRect.Bottom = 366.000000000000000000
+        end>
+    end
+  end
+  object TLayout
+    StyleName = 'edtemailstyle1rightselectionpointstyle1'
+    Size.Width = 300.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 6
+    FixedWidth = 24
+    FixedHeight = 24
+    object TStyleObject
+      StyleName = 'background'
+      SourceLookup = 'AndroidL Lightstyle.png'
+      Size.Width = 24.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+      SourceLink = <
+        item
+          SourceRect.Left = 63.000000000000000000
+          SourceRect.Top = 106.000000000000000000
+          SourceRect.Right = 87.000000000000000000
+          SourceRect.Bottom = 130.000000000000000000
+        end
+        item
+          Scale = 1.500000000000000000
+          SourceRect.Left = 94.000000000000000000
+          SourceRect.Top = 144.000000000000000000
+          SourceRect.Right = 130.000000000000000000
+          SourceRect.Bottom = 180.000000000000000000
+        end
+        item
+          Scale = 2.000000000000000000
+          SourceRect.Left = 118.000000000000000000
+          SourceRect.Top = 201.000000000000000000
+          SourceRect.Right = 170.000000000000000000
+          SourceRect.Bottom = 253.000000000000000000
+        end
+        item
+          Scale = 3.000000000000000000
+          SourceRect.Left = 189.000000000000000000
+          SourceRect.Top = 295.000000000000000000
+          SourceRect.Right = 261.000000000000000000
+          SourceRect.Bottom = 367.000000000000000000
+        end>
+    end
+  end
+  object TLayout
+    StyleName = 'edtemailstyle1LabelStyle1'
+    Size.Width = 300.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 7
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 300.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.FontColor = xFF222222
+    end
+  end
+end
