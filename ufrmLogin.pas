@@ -6,10 +6,10 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl, System.Actions,
-  FMX.ActnList, FMX.Edit, FMX.MediaLibrary.Actions, FMX.StdActns, FGX.ActionSheet;
+  FMX.ActnList, FMX.Edit, FMX.MediaLibrary.Actions, FMX.StdActns, FGX.ActionSheet, ufrmBase;
 
 type
-  TfrmLogin = class(TForm)
+  TfrmLogin = class(TfrmBase)
     tbcLogin: TTabControl;
     tabCadastro1: TTabItem;
     tabCadastro2: TTabItem;
@@ -30,11 +30,6 @@ type
     lytEsquerdaOu: TLayout;
     lineEsquerda: TLine;
     lblOu: TLabel;
-    lytRodape: TLayout;
-    lytJaTemConta: TLayout;
-    lblJaTemConta: TLabel;
-    lblLinkLogin: TLabel;
-    lineJaTemContaTopo: TLine;
     recTopo: TRectangle;
     lytLogo: TLayout;
     imgLogoInstagram: TImage;
@@ -79,6 +74,49 @@ type
     actFotoCamera: TTakePhotoFromCameraAction;
     fgactFoto: TfgActionSheet;
     StyleBook1: TStyleBook;
+    lyt1: TLayout;
+    img1: TImage;
+    lyt2: TLayout;
+    edt1: TEdit;
+    lyt3: TLayout;
+    edt2: TEdit;
+    lyt4: TLayout;
+    lbl1: TLabel;
+    lyt5: TLayout;
+    lyt6: TLayout;
+    rec1: TRectangle;
+    btn1: TSpeedButton;
+    lyt7: TLayout;
+    lyt8: TLayout;
+    lbl2: TLabel;
+    pth1: TPath;
+    lyt9: TLayout;
+    lyt10: TLayout;
+    lyt11: TLayout;
+    ln1: TLine;
+    lyt12: TLayout;
+    ln2: TLine;
+    lbl3: TLabel;
+    lyt13: TLayout;
+    lyt14: TLayout;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    ln3: TLine;
+    lytRodape: TLayout;
+    lytJaTemConta: TLayout;
+    lblJaTemConta: TLabel;
+    lblLinkLogin: TLabel;
+    lnJaTemContaTopo: TLine;
+    lyt15: TLayout;
+    lyt16: TLayout;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    ln4: TLine;
+    lyt17: TLayout;
+    lyt18: TLayout;
+    lbl8: TLabel;
+    lbl9: TLabel;
+    ln5: TLine;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tbcLoginChange(Sender: TObject);
@@ -87,10 +125,13 @@ type
     procedure lblTelefoneClick(Sender: TObject);
     procedure circleFotoClick(Sender: TObject);
     procedure actFotoLibraryDidFinishTaking(Image: TBitmap);
+    procedure lblLinkLoginClick(Sender: TObject);
+    procedure lbl5Click(Sender: TObject);
   private
     procedure mudaParaAba(pAba: TTabItem);
+  protected
+    class function instanceClass: TComponentClass; override;
   public
-    { Public declarations }
   end;
 
 var
@@ -139,6 +180,16 @@ begin
   tbcLogin.TabIndex := 0;
 end;
 
+class function TfrmLogin.instanceClass: TComponentClass;
+begin
+  result := TfrmLogin;
+end;
+
+procedure TfrmLogin.lbl5Click(Sender: TObject);
+begin
+  mudaParaAba(tabCadastro2);
+end;
+
 procedure TfrmLogin.lblCadastrarTelefoneEmailClick(Sender: TObject);
 begin
   mudaParaAba(tabCadastro2);
@@ -154,6 +205,11 @@ begin
 
   mudaParaAba(tabEditEmail);
   mudaParaAba(tabSemTextoSMS);
+end;
+
+procedure TfrmLogin.lblLinkLoginClick(Sender: TObject);
+begin
+  mudaParaAba(tabLogin);
 end;
 
 procedure TfrmLogin.lblTelefoneClick(Sender: TObject);

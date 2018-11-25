@@ -32,7 +32,10 @@ type
     imgLogoInstagram: TImage;
     lblSubTituloLogo: TLabel;
     lytJaTemContaCentro: TLayout;
+    btnLoginComFacebook: TSpeedButton;
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
+    procedure lblLinkLoginClick(Sender: TObject);
+    procedure btnLoginComFacebookClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,12 +52,19 @@ uses
 
 {$R *.fmx}
 
+procedure TfrmInicial.btnLoginComFacebookClick(Sender: TObject);
+begin
+  // Login com facebook
+end;
+
 procedure TfrmInicial.lblCadastrarTelefoneEmailClick(Sender: TObject);
 begin
-  if not Assigned(frmLogin) then
-    Application.CreateForm(TfrmLogin, frmLogin);
+  TfrmLogin.Show(frmLogin);
+end;
 
-  frmLogin.Show;
+procedure TfrmInicial.lblLinkLoginClick(Sender: TObject);
+begin
+  TfrmLogin.Show(frmLogin);
 end;
 
 end.
