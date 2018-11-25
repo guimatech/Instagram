@@ -65,6 +65,7 @@ end;
 procedure TfrmInicial.lblLinkLoginClick(Sender: TObject);
 begin
   TfrmLogin.Show(frmLogin);
+  frmLogin.mudaParaAba(frmLogin.tabLogin);
 end;
 
 end.

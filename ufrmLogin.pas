@@ -127,10 +127,10 @@ type
     procedure actFotoLibraryDidFinishTaking(Image: TBitmap);
     procedure lblLinkLoginClick(Sender: TObject);
     procedure lbl5Click(Sender: TObject);
-  private
-    procedure mudaParaAba(pAba: TTabItem);
   protected
     class function instanceClass: TComponentClass; override;
+  published
+    procedure mudaParaAba(pAba: TTabItem);
   public
   end;
 
