@@ -127,6 +127,7 @@ type
     procedure actFotoLibraryDidFinishTaking(Image: TBitmap);
     procedure lblLinkLoginClick(Sender: TObject);
     procedure lbl5Click(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   protected
     class function instanceClass: TComponentClass; override;
   published
@@ -142,11 +143,17 @@ implementation
 {$R *.fmx}
 
 uses
-  System.UIConsts, uClass.Validacao;
+  System.UIConsts, uClass.Validacao, ufrmPrincipal;
 
 procedure TfrmLogin.actFotoLibraryDidFinishTaking(Image: TBitmap);
 begin
   circleFoto.Fill.Bitmap.Bitmap := Image;
+end;
+
+procedure TfrmLogin.btn1Click(Sender: TObject);
+begin
+  inherited;
+  TfrmPrincipal.Show(frmPrincipal);
 end;
 
 procedure TfrmLogin.btnAvancarClick(Sender: TObject);
