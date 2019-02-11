@@ -9,7 +9,6 @@ uses
 
 type
   TfrmStyle = class(TfrmBase)
-    imgFoto: TImage;
     imgIconeFavoritoClicado: TImage;
     imgIconeMarcadorPreenchido: TImage;
     imgIconeOpcoes: TImage;

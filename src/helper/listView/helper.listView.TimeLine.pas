@@ -4,7 +4,8 @@ interface
 
 uses
   System.UITypes, model.Post, FMX.Objects, FMX.ListView, FMX.ListView.Types, FMX.ListView.Appearances,
-  FMX.ListView.Adapters.Base, model.Formatacao, ufrmStyle, System.SysUtils, FMX.Utils, System.Classes;
+  FMX.ListView.Adapters.Base, model.Formatacao, ufrmStyle, System.SysUtils, FMX.Utils,
+  System.Classes, FMX.Graphics;
 
 type
   TTimeLine = class helper for TListView
@@ -14,9 +15,12 @@ type
     procedure AddQuantidadeCurtidas(const pnQuantidadeCurtidas: Integer);
     procedure AddDescricaoPost(const psDescricaoPost: string);
   private
-    class var FoItem: TListViewItem;
+    class var
+      FoItem: TListViewItem;
     procedure AddTexto(const psNomeItem, psTexto: string; const poFormatacao: TFormatacao);
-    procedure AddImagem(const psNomeItem: string; const poImagemIcone: TImage);
+    procedure AddImagem(const psNomeItem: string; const poImagem: TBitmap); overload;
+    procedure AddImagem(const psNomeItem: string; const psBase64: string); overload;
+    procedure AddImagem(const psNomeItem: string; const poImagem: TImage); overload;
   public
     procedure AddPost(const poItemLista: TPost);
   end;
@@ -29,13 +33,14 @@ implementation
 { TTimeLine }
 
 uses
-  uClass.Conversao;
+  uClass.Conversao, uClass.Network;
 
 procedure TTimeLine.AddPost(const poItemLista: TPost);
 begin
-   FoItem := Items.Add;
+  FoItem := Items.Add;
 
   // Icone do usuário...
+  AddImagem('Image3', TNetwork.PegarImagemPorURL(poItemLista.sIconeUsuario64));
 
   AddNomeUsuario(poItemLista.sNomeUsuario);
   AddLocalizacao(poItemLista.sLocalizacao);
@@ -44,6 +49,7 @@ begin
   AddImagem('Image4', frmStyle.imgIconeOpcoes);
 
   // Foto...
+  AddImagem('Image5', TNetwork.PegarImagemPorURL(poItemLista.sFoto64));
 
   // Icone curtir...
   AddImagem('Image6', frmStyle.imgIconeFavorito);
@@ -130,12 +136,34 @@ begin
   oTexto.WordWrap := poFormatacao.bWordWrap;
 end;
 
-procedure TTimeLine.AddImagem(const psNomeItem: string; const poImagemIcone: TImage);
+procedure TTimeLine.AddImagem(const psNomeItem: string; const poImagem: TBitmap);
 var
   oImagem: TListItemImage;
 begin
   oImagem := TListItemImage(FoItem.Objects.FindDrawable(psNomeItem));
-  oImagem.Bitmap := poImagemIcone.Bitmap;
+  oImagem.Bitmap := poImagem;
+end;
+
+procedure TTimeLine.AddImagem(const psNomeItem, psBase64: string);
+var
+  oFoto: TBitmap;
+begin
+  if psBase64.IsEmpty then
+  begin
+    Exit;
+  end;
+
+  try
+    oFoto := TBitmap.Create;
+    oFoto := TConversao.BitmapFromBase64(psBase64);
+    AddImagem(psNomeItem, oFoto);
+  except
+  end;
+end;
+
+procedure TTimeLine.AddImagem(const psNomeItem: string; const poImagem: TImage);
+begin
+  AddImagem(psNomeItem, poImagem.Bitmap);
 end;
 
 end.

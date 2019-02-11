@@ -12,7 +12,8 @@ uses
   ufrmBase in 'src\view\ufrmBase.pas' {frmBase},
   ufrmInicial in 'src\view\ufrmInicial.pas' {frmInicial},
   ufrmLogin in 'src\view\ufrmLogin.pas' {frmLogin},
-  ufrmPrincipal in 'src\view\ufrmPrincipal.pas' {frmPrincipal};
+  ufrmPrincipal in 'src\view\ufrmPrincipal.pas' {frmPrincipal},
+  uClass.Network in 'src\utils\uClass.Network.pas';
 
 {$R *.res}
 

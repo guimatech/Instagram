@@ -8,7 +8,7 @@ uses
 type
   TConversao = class
     class function Base64FromBitmap(const poBitmap: TBitmap): string;
-    class function BitmapFromBase64(const poBase64: string): TBitmap;
+    class function BitmapFromBase64(const psBase64: string): TBitmap;
   end;
 
 implementation
@@ -37,12 +37,12 @@ begin
   end;
 end;
 
-class function TConversao.BitmapFromBase64(const poBase64: string): TBitmap;
+class function TConversao.BitmapFromBase64(const psBase64: string): TBitmap;
 var
   oInput: TStringStream;
   oOutput: TBytesStream;
 begin
-  oInput := TStringStream.Create(poBase64, TEncoding.ASCII);
+  oInput := TStringStream.Create(psBase64, TEncoding.ASCII);
   try
     oOutput := TBytesStream.Create;
     try

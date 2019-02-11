@@ -6,9 +6,11 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
   FMX.Objects, FMX.Layouts, ufrmBase, System.Actions, FMX.ActnList, FMX.Gestures,
-  FMX.ListView,
-  System.Generics.Collections, model.Post, FMX.ListView.Types,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, helper.listView.TimeLine;
+  FMX.ListView, System.Generics.Collections, model.Post, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, helper.listView.TimeLine, FMX.Controls.Presentation,
+  FMX.ScrollBox, FMX.Memo, System.JSON, IdBaseComponent, IdComponent,
+  IdTCPConnection, IdTCPClient, IdHTTP, Data.DBXJSON, IdIOHandler,
+  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL;
 
 type
   TfrmPrincipal = class(TfrmBase)
@@ -43,6 +45,9 @@ type
     procedure FormShow(Sender: TObject);
   private
     function PegarPosts: TObjectList<TPost>;
+    function PegarURLAPI(psGetDetails: string): string;
+    function PegarURLImagem(psNomeImagem: string): string;
+    function TratarJSON(const psJSON: string): string;
   protected
     class function instanceClass: TComponentClass; override;
   public
@@ -53,6 +58,9 @@ var
   frmPrincipal: TfrmPrincipal;
 
 implementation
+
+uses
+  uClass.Network;
 
 {$R *.fmx}
 
@@ -118,41 +126,66 @@ end;
 
 class function TfrmPrincipal.instanceClass: TComponentClass;
 begin
-  result := TfrmPrincipal;
+  Result := TfrmPrincipal;
 end;
 
 function TfrmPrincipal.PegarPosts: TObjectList<TPost>;
 var
   oPost: TPost;
+  sJSON: string;
+  oListaPosts: TJSONArray;
+  I: Integer;
+  lStream: TStringStream;
 begin
   Result := TObjectList<TPost>.Create;
 
-  oPost := TPost.Create;
-  oPost.sIconeUsuario64 := '';
-  oPost.sNomeUsuario := 'Lucas Guimarães';
-  oPost.sLocalizacao := 'Florianóplis';
-  oPost.sFoto64 := '';
-  oPost.sDescricao := 'Convite para meus amigos...';
-  oPost.nQuantidadeCurtida := 37;
-  Result.Add(oPost);
+  sJSON := TNetwork.PegarStringPorURL(PegarURLAPI('/movie/popular'));
 
-  oPost := TPost.Create;
-  oPost.sIconeUsuario64 := '';
-  oPost.sNomeUsuario := 'Lucas Guimarães';
-  oPost.sLocalizacao := 'Florianóplis';
-  oPost.sFoto64 := '';
-  oPost.sDescricao := 'Vida de programador...';
-  oPost.nQuantidadeCurtida := 1;
-  Result.Add(oPost);
+  oListaPosts := TJSONArray.Create;
+  try
+    oListaPosts := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(TratarJSON
+      (sJSON)), 0) as TJSONArray;
 
-  oPost := TPost.Create;
-  oPost.sIconeUsuario64 := '';
-  oPost.sNomeUsuario := 'Lucas Guimarães';
-  oPost.sLocalizacao := 'Florianóplis';
-  oPost.sFoto64 := '';
-  oPost.sDescricao := 'Acessem o blog';
-  oPost.nQuantidadeCurtida := 0;
-  Result.Add(oPost);
+    for I := 0 to oListaPosts.Size - 1 do
+    begin
+      oPost := TPost.Create;
+      oPost.sIconeUsuario64 := PegarURLImagem(oListaPosts.Get(I).GetValue<string>('poster_path'));
+      oPost.sNomeUsuario := oListaPosts.Get(I).GetValue<string>('title');
+      oPost.sLocalizacao := oListaPosts.Get(I).GetValue<string>('release_date');
+      oPost.sFoto64 := PegarURLImagem(oListaPosts.Get(I).GetValue<string>('backdrop_path'));
+      oPost.sDescricao := oListaPosts.Get(I).GetValue<string>('overview');
+      oPost.nQuantidadeCurtida := oListaPosts.Get(I).GetValue<Integer>('vote_count');
+      Result.Add(oPost);
+    end;
+  finally
+    FreeAndNil(oListaPosts);
+  end;
+end;
+
+function TfrmPrincipal.PegarURLAPI(psGetDetails: string): string;
+const
+  sCAMINHO_BASE_API = 'https://api.themoviedb.org/3';
+  sAPI_KEY = '042ffd425ac3c6d84b4f30a57fc2bb2e';
+begin
+  Result := sCAMINHO_BASE_API + psGetDetails + '?api_key=' + sAPI_KEY;
+end;
+
+function TfrmPrincipal.PegarURLImagem(psNomeImagem: string): string;
+const
+  sCAMINHO_BASE_IMAGEM = 'https://image.tmdb.org/t/p/w500';
+begin
+  Result := sCAMINHO_BASE_IMAGEM + psNomeImagem;
+end;
+
+function TfrmPrincipal.TratarJSON(const psJSON: string): string;
+var
+  sJSONTratado: string;
+  nInicioCorte, nFimCorte: Integer;
+begin
+  nInicioCorte := Pos('[', psJSON);
+  nFimCorte := psJSON.Length - (Pos('[', psJSON));
+  sJSONTratado := Copy(psJSON, nInicioCorte, nFimCorte);
+  Result := sJSONTratado;
 end;
 
 end.
