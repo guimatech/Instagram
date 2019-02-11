@@ -13,7 +13,8 @@ uses
   ufrmInicial in 'src\view\ufrmInicial.pas' {frmInicial},
   ufrmLogin in 'src\view\ufrmLogin.pas' {frmLogin},
   ufrmPrincipal in 'src\view\ufrmPrincipal.pas' {frmPrincipal},
-  uClass.Network in 'src\utils\uClass.Network.pas';
+  uClass.Network in 'src\utils\uClass.Network.pas',
+  uClass.Diretorio in 'src\utils\uClass.Diretorio.pas';
 
 {$R *.res}
 

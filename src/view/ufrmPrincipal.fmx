@@ -1894,6 +1894,7 @@ object frmPrincipal: TfrmPrincipal
         ItemEditAppearanceClassName = 'TDynamicAppearance'
         HeaderAppearanceClassName = 'TListHeaderObjects'
         FooterAppearanceClassName = 'TListHeaderObjects'
+        AllowSelection = False
         Align = Client
         Size.Width = 301.000000000000000000
         Size.Height = 449.000000000000000000

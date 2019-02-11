@@ -21,29 +21,34 @@ var
   oSSL: TIdSSLIOHandlerSocketOpenSSL;
 begin
   oHTTP := TIdHTTP.Create(nil);
+  oSSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
   oStream := TStringStream.Create(Result);
   try
-//    IdSSL.SSLOptions.Method := sslvSSLv3;
-//    IdSSL.SSLOptions.Mode := sslmClient;
+    oHTTP.IOHandler := oSSL;
     oHTTP.Get(psURL, oStream);
     oStream.Position := 0;
     Result := oStream.ReadString(oStream.Size);
   finally
     FreeAndNil(oHTTP);
+    FreeAndNil(oSSL);
     FreeAndNil(oStream);
   end;
 end;
 
-class function TNetwork.PegarImagemPorURL(const psURL: string; const pbSSL: Boolean = True): TBitmap;
+class function TNetwork.PegarImagemPorURL(const psURL: string; const pbSSL:
+  Boolean = True): TBitmap;
 var
   oBitmap: TBitmap;
   oStream: TMemoryStream;
-  oHTTP : TIdHTTP;
+  oHTTP: TIdHTTP;
+  oSSL: TIdSSLIOHandlerSocketOpenSSL;
 begin
-  oBitmap := TBitmap.Create;
-  oStream := TMemoryStream.Create;
   oHTTP := TIdHTTP.Create(nil);
+  oSSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+  oStream := TMemoryStream.Create;
+  oBitmap := TBitmap.Create;
   try
+    oHTTP.IOHandler := oSSL;
     oHTTP.Get(psURL, oStream);
     if (oStream.Size > 0) then
     begin
@@ -53,6 +58,7 @@ begin
     end;
   finally
     FreeAndNil(oHTTP);
+    FreeAndNil(oSSL);
     FreeAndNil(oStream);
 //    FreeAndNil(oBitmap);
   end;

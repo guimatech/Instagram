@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects, FMX.Layouts,
-  FMX.Controls.Presentation, FMX.StdCtrls;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls;
 
 type
   TfrmInicial = class(TForm)
@@ -36,6 +36,7 @@ type
     procedure lblCadastrarTelefoneEmailClick(Sender: TObject);
     procedure lblLinkLoginClick(Sender: TObject);
     procedure btnLoginComFacebookClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,13 +49,18 @@ var
 implementation
 
 uses
-  ufrmLogin;
+  ufrmLogin, uClass.Diretorio, IdSSLOpenSSLHeaders;
 
 {$R *.fmx}
 
 procedure TfrmInicial.btnLoginComFacebookClick(Sender: TObject);
 begin
   // Login com facebook
+end;
+
+procedure TfrmInicial.FormCreate(Sender: TObject);
+begin
+  IdOpenSSLSetLibPath(TDiretorio.PegarDiretorioDocumentos);
 end;
 
 procedure TfrmInicial.lblCadastrarTelefoneEmailClick(Sender: TObject);
@@ -69,3 +75,4 @@ begin
 end;
 
 end.
+
