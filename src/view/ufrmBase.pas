@@ -10,10 +10,8 @@ type
   TfrmBase = class(TForm)
   private
     { Private declarations }
-  protected
-    class function instanceClass: TComponentClass; virtual; abstract;
   public
-    class procedure show(var Reference); virtual;
+    { Public declarations }
   end;
 
 implementation
@@ -21,14 +19,5 @@ implementation
 {$R *.fmx}
 
 { TfrmBase }
-
-class procedure TfrmBase.show(var Reference);
-begin
-  if not Assigned(TForm(Reference)) then
-    Application.CreateForm(instanceClass, Reference);
-
-  TForm(Reference).Show;
-end;
-
 end.
 

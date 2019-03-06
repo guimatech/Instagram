@@ -43,15 +43,14 @@ type
     procedure actChangeTabLeftUpdate(Sender: TObject);
     procedure actChangeTabRigthUpdate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lvTimeLineItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
   private
     function PegarPosts: TObjectList<TPost>;
     function PegarURLAPI(psGetDetails: string): string;
     function PegarURLImagem(psNomeImagem: string): string;
     function TratarJSON(const psJSON: string): string;
-  protected
-    class function instanceClass: TComponentClass; override;
-  public
-    { Public declarations }
+    procedure ListarPosts;
   end;
 
 var
@@ -60,7 +59,7 @@ var
 implementation
 
 uses
-  uClass.Network;
+  uClass.Network, ufrmStyle, System.Threading;
 
 {$R *.fmx}
 
@@ -104,16 +103,21 @@ procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   tbcPrincipal.TabPosition := TTabPosition.None;
   tbcPrincipal.ActiveTab := tabTimeline;
+  lvTimeLine.RedimencionarConteudoAutomaticamente;
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
+begin
+  inherited;
+  ListarPosts;
+end;
+
+procedure TfrmPrincipal.ListarPosts;
 var
   oPost: TPost;
   oListaPosts: TObjectList<TPost>;
 begin
-  inherited;
   oListaPosts := PegarPosts;
-
   try
     for oPost in oListaPosts do
     begin
@@ -124,9 +128,34 @@ begin
   end;
 end;
 
-class function TfrmPrincipal.instanceClass: TComponentClass;
+procedure TfrmPrincipal.lvTimeLineItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
 begin
-  Result := TfrmPrincipal;
+  inherited;
+  if TListView(Sender).Selected = nil then
+  begin
+    Exit;
+  end;
+
+  if not(ItemObject is TListItemImage) then
+  begin
+    Exit;
+  end;
+
+  if TListItemImage(ItemObject).Name = sICONE_CURTIR then
+  begin
+    if TListItemImage(ItemObject).TagFloat = 0 then
+    begin
+      TListItemImage(ItemObject).Bitmap := frmStyle.imgIconeFavoritoClicado.Bitmap;
+      TListItemImage(ItemObject).TagFloat := 1;
+    end
+    else
+    begin
+      TListItemImage(ItemObject).Bitmap := frmStyle.imgIconeFavorito.Bitmap;
+      TListItemImage(ItemObject).TagFloat := 0;
+    end;
+  end;
 end;
 
 function TfrmPrincipal.PegarPosts: TObjectList<TPost>;
@@ -141,7 +170,6 @@ begin
 
   sJSON := TNetwork.PegarStringPorURL(PegarURLAPI('/movie/popular'));
 
-  oListaPosts := TJSONArray.Create;
   try
     oListaPosts := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(TratarJSON
       (sJSON)), 0) as TJSONArray;

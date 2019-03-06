@@ -38,7 +38,7 @@ type
     procedure btnLoginComFacebookClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    procedure AbrirFormLogin;
   public
     { Public declarations }
   end;
@@ -53,6 +53,14 @@ uses
 
 {$R *.fmx}
 
+procedure TfrmInicial.AbrirFormLogin;
+begin
+  if not Assigned(frmLogin) then
+    Application.CreateForm(TfrmLogin, frmLogin);
+
+  frmLogin.Show;
+end;
+
 procedure TfrmInicial.btnLoginComFacebookClick(Sender: TObject);
 begin
   // Login com facebook
@@ -65,12 +73,12 @@ end;
 
 procedure TfrmInicial.lblCadastrarTelefoneEmailClick(Sender: TObject);
 begin
-  TfrmLogin.Show(frmLogin);
+  AbrirFormLogin;
 end;
 
 procedure TfrmInicial.lblLinkLoginClick(Sender: TObject);
 begin
-  TfrmLogin.Show(frmLogin);
+  AbrirFormLogin;
   frmLogin.mudaParaAba(frmLogin.tabLogin);
 end;
 

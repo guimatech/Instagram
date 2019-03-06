@@ -128,11 +128,8 @@ type
     procedure lblLinkLoginClick(Sender: TObject);
     procedure lbl5Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
-  protected
-    class function instanceClass: TComponentClass; override;
   published
     procedure mudaParaAba(pAba: TTabItem);
-  public
   end;
 
 var
@@ -153,7 +150,10 @@ end;
 procedure TfrmLogin.btn1Click(Sender: TObject);
 begin
   inherited;
-  TfrmPrincipal.Show(frmPrincipal);
+  if not Assigned(frmPrincipal) then
+    Application.CreateForm(TfrmPrincipal, frmPrincipal);
+
+  frmPrincipal.Show;
 end;
 
 procedure TfrmLogin.btnAvancarClick(Sender: TObject);
@@ -185,11 +185,6 @@ procedure TfrmLogin.FormShow(Sender: TObject);
 begin
   tbcLogin.TabPosition := TTabPosition.None;
   tbcLogin.TabIndex := 0;
-end;
-
-class function TfrmLogin.instanceClass: TComponentClass;
-begin
-  result := TfrmLogin;
 end;
 
 procedure TfrmLogin.lbl5Click(Sender: TObject);

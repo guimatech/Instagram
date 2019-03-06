@@ -14,7 +14,8 @@ uses
   ufrmLogin in 'src\view\ufrmLogin.pas' {frmLogin},
   ufrmPrincipal in 'src\view\ufrmPrincipal.pas' {frmPrincipal},
   uClass.Network in 'src\utils\uClass.Network.pas',
-  uClass.Diretorio in 'src\utils\uClass.Diretorio.pas';
+  uClass.Diretorio in 'src\utils\uClass.Diretorio.pas',
+  uClass.JSON in 'src\utils\uClass.JSON.pas';
 
 {$R *.res}
 
